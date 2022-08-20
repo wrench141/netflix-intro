@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.background{
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.logo{
+    width: 150px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    animation: scale 1s linear forwards;
+    animation-delay: 6.3s;
+}
+
+.logo .stick1{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.logo .stick1 .color1{
+    width: 50px;
+    height: 0%;
+    background-color: red;
+    animation: stick 1s ease forwards;
+    position: relative;
+    z-index: 2;
+}
+
+.logo .stick2{
+    width: 50px;
+    height: 150%;
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    transform: rotate(-21deg) translate(69px, 2px);
+}
+.lines{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.logo .stick2 .color{
+    width: 100%;
+    height: 0%;
+    background: #f00;
+    box-shadow: 0 0 16px black;
+    animation: stick 1s ease forwards;
+    animation-delay: 1s;
+}
+
+
+.logo .stick3 {
+    width: 50px;
+    height: 0%;
+    background: red;
+    position: relative;
+    z-index: 0;
+    animation: stick 1s ease forwards;
+    animation-delay: 1.7s;
+}
+
+
+
+.line{
+    height: 100vh;
+    background: blue;
+}
+
+
+
+
+/* animations needed  */
+
+
+@keyframes stick{
+    from{
+        height: 0px;
+    }to{
+        height: 100%;
+    }
+}
+
+@keyframes stick-reverse {
+    from{
+        height: 100%;
+        display: block;
+    }to{
+        height: 0%;
+        display: none;
+    }
+}
+
+@keyframes scale {
+    30%{
+        height:100vh;
+        width: 150px;
+    }
+    50%{
+        height: 100vh;
+        width: 100%;
+    }
+    100%{
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@keyframes stick-change{
+    0%{
+        width: 50px;
+
+    }100%{
+        width: 100%;
+    }
+}
+
+@keyframes c-change {
+    0% {
+        width: 50px;
+    }
+
+    100% {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+
+@keyframes opacity{
+    0%{
+        opacity: 1;
+        display: block;
+    }100%{
+        opacity: 0;
+        display: none;
+    }
+}
