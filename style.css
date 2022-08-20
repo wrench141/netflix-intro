@@ -17,140 +17,167 @@
 
 .logo{
     width: 150px;
-    height: 250px;
-    overflow: hidden;
-    position: relative;
+    height: max-content;
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-    animation: scale 1s linear forwards;
-    animation-delay: 6.3s;
-}
-
-.logo .stick1{
-    width: auto;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-}
-
-.logo .stick1 .color1{
-    width: 50px;
-    height: 0%;
-    background-color: red;
-    animation: stick 1s ease forwards;
     position: relative;
-    z-index: 2;
-}
-
-.logo .stick2{
-    width: 50px;
-    height: 150%;
-    position: absolute;
-    top: 0px;
-    z-index: 3;
-    transform: rotate(-21deg) translate(69px, 2px);
-}
-.lines{
-    width: auto;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.logo .stick2 .color{
-    width: 100%;
-    height: 0%;
-    background: #f00;
-    box-shadow: 0 0 16px black;
-    animation: stick 1s ease forwards;
-    animation-delay: 1s;
-}
-
-
-.logo .stick3 {
-    width: 50px;
-    height: 0%;
-    background: red;
-    position: relative;
-    z-index: 0;
-    animation: stick 1s ease forwards;
+    animation: scale 3s ease forwards;
     animation-delay: 1.7s;
 }
 
+.brush{
+    width: 50px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    animation: scaler 0.5s ease forwards;
+    animation-delay: 4s;
+    position: relative;
+}
+
+.color{
+    width: 50px;
+    height: 0%;
+    animation: moveup 0.5s ease forwards;
+    background: rgb(194, 0, 0);
+    position: relative;
+    z-index: 2;
+}
+.lines{
+    width: max-content;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    z-index: 0;
+    display: none;
+}
+
+.brush2 {
+    width: 50px;
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.color2 {
+    width: 100%;
+    height: 0%;
+    animation: moveup 0.5s ease forwards;
+    animation-delay: 1s;
+    background: rgb(194, 0, 0);
+}
+
+.brush3 {
+    width: 50px;
+    height: 0;
+    position: absolute;
+    z-index: 2;
+    transform-origin: top left;
+    transform: skew(24.4deg);
+    animation: moveup 0.5s ease forwards;
+    animation-delay: 0.5s;
+    background: red;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.333);
+}
 
 
 .line{
-    height: 100vh;
-    background: blue;
+    width: 1px;
+    height: 100%;
+    animation: margin 2s linear forwards, bgcolor 0.2s linear forwards;
+    animation-delay: 0.2s;
+    background: red;
+    margin-right: 1px;
 }
 
-
-
-
-/* animations needed  */
-
-
-@keyframes stick{
-    from{
-        height: 0px;
-    }to{
-        height: 100%;
+@keyframes margin {
+    0%{
+        width: 1px;
+        margin-right:1px;
+        box-shadow:none;
+    }
+    100%{
+        margin-right: var(--m);
+        width: 40px;
+        box-shadow: 0 0 5px rgb(172, 172, 172),
+                0 0 50px var(--c);
     }
 }
 
-@keyframes stick-reverse {
-    from{
-        height: 100%;
-        display: block;
-    }to{
-        height: 0%;
-        display: none;
+@keyframes bgcolor {
+    0% {
+        background-color: red;
+    }
+    30%{
+        background:radial-gradient(circle, rgba(255, 0, 0, 1) 75%, rgba(0, 0, 0, 0.5954714649531687) 100%);
+    }100%{
+        background: var(--c);
+    }
+}
+
+@keyframes scaler {
+    0%{
+        width: 50px;
+        height: 220px;
+    }
+    100%{
+        width: max-content;
+        height: 100vh;
+    }
+}
+
+@keyframes opacity {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes moveup{
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 220px;
+    }
+}
+
+@keyframes movedown {
+    0% {
+        height: 220px;
+    }
+
+    100% {
+        height: 0px;
     }
 }
 
 @keyframes scale {
-    30%{
-        height:100vh;
-        width: 150px;
-    }
     50%{
-        height: 100vh;
-        width: 100%;
+        transform: scale(1);
     }
     100%{
-        height: 100vh;
-        width: 100%;
+        transform: scale(1.5);
     }
 }
 
-@keyframes stick-change{
-    0%{
-        width: 50px;
+/* 
 
-    }100%{
-        width: 100%;
-    }
-}
-
-@keyframes c-change {
-    0% {
-        width: 50px;
-    }
-
-    100% {
-        width: 100%;
-        justify-content: space-evenly;
-    }
-}
-
-@keyframes opacity{
-    0%{
-        opacity: 1;
-        display: block;
-    }100%{
-        opacity: 0;
-        display: none;
-    }
-}
+#133286
+#3062af
+#4a7fcb
+#b6aea9
+#628ace
+#949fd9
+#9986aa
+#462652
+#b16f67
+#d3ad94
+#821e12
+#821e12
+#c34821
+*/
